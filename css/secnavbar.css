@@ -1,0 +1,13 @@
+.col-md-3{
+	background-color: rgb(45,43,66); 
+}
+.col-md-3 a{
+	color: rgb(192,192,192);
+}
+.col-md-3 ul li{
+	padding: 5%;
+	border-bottom: 1px solid #fff;
+}
+.col-md-3 a:hover{
+	background: #000;
+}
