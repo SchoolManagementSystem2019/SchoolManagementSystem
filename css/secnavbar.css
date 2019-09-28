@@ -11,9 +11,6 @@
 .col-md-3 li:hover{
 	background: #000;
 }
-.dropdown a{
+.dropdown-menu a{
 	background-color: rgb(45,43,66);
-}
-.dopdown a:hover{
-	color: #fff;
 }

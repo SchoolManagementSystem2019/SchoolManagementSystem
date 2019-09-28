@@ -8,7 +8,7 @@
 .container{
 	margin-top: 5%;
 }
-#file{
+#file,#img{
 	display: none;
 }
 .lead{

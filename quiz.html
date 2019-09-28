@@ -23,8 +23,9 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-9 ml-auto">
-				<button type="button" class="btn btn-secondary btn-lg btn-block" id="margin" onclick="">Make quiz</button>
-				<div class="container">
+				<button type="button" class="btn btn-secondary btn-lg btn-block" id="margin" onclick="toggle()">
+				Make quiz</button>
+				<div class="container" id="quizdiv">
 					<input type="text" id="question1" placeholder="Type your question here...!!!">
 					<br>
 					<button type="button" id="optionbtn" class="btn btn-secondary btn-lg btn-block">
@@ -40,6 +41,8 @@
 							<option value="4">4</option>
 						</optgroup>
 					</select>
+					<div id="optdiv">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -47,13 +50,25 @@
 
 
 	<script>
+
+		function toggle() {
+			var quiz = document.getElementById('quizdiv');
+
+			if (quiz.style.display === "none") {
+				quiz.style.display = "block";
+			} else {
+				quiz.style.display = "none";
+			}
+		}
 		 function createopt() {
 			var  number = document.getElementById('list').value;
 			alert(number);
 			for(var i = 1; i <= number; i++){
 				var btn = document.createElement("BUTTON");
-				btn.innerHTML = "Hello";
-				var appededbtn = document.body.appendChild(btn);
+				var targetDiv = document.getElementById('optdiv').appendChild(btn);
+				targetDiv.style.padding = "5%";
+				targetDiv.style.margin = "5% 10%";
+				targetDiv.style.width = "30%";
 			};
 		 };
 	</script>

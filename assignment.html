@@ -25,53 +25,33 @@
 					<button type="button" class="btn btn-secondary btn-lg btn-block" id="margin" 
 					onclick="toggle()">Upload Assignment</button>
 					<br>
-					<div id="file">
+					<div>
 						<h1 class="lead">Upload .DOCX file</h1>
 						<hr>
-						<input type="file" onselect="assignmentdate()">
+						<input type="file" accept=".docx/*"  id="file" onchange="assignmentdate()">
+						<div id="img"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 	<script>
 		function toggle() {
 			var fileupload = document.getElementById('file');
+			var imgDiv = document.getElementById('img');
+
 			if (fileupload.style.display === "none") {
 				fileupload.style.display = "block";
 			} else {
 				fileupload.style.display = "none";
+			}
+
+			if (imgDiv.style.display === "none") {
+				imgDiv.style.display = "block";
+			} else {
+				imgDiv.style.display = "none";
 			}
 		}
 		function assignmentdate(){
@@ -80,13 +60,20 @@
 			var month = today.getMonth();
 			var year = today.getFullYear();
 			var wholeDate = date + " / " + month + " / " + year;
-			// alert(date + " / " + month + " / " + year);
 			var varfile = {};
 			varfile = document.getElementById('file').value;
-			if (varfile.length === 0) {
+			if (varfile !== "undefined") {
+				var image = document.getElementById('img').innerHTML=(varfile);
 				alert(wholeDate);
 			}else{
-				alert("Hello!!");
+				document.write("   ");
+			}
+			var fileValue = document.getElementById('file').value;
+			var fileExtension = /(\.docx)$/i;
+			if (!fileExtension.exec(fileValue)){
+				alert("Please Upload files with .DOCX Extension only");			}
+			else{
+				alert("Assignment Uploaded Successfully..!!!")
 			}
 		}
 

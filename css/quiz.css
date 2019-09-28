@@ -3,6 +3,7 @@
 }
 .col-md-9{
 	background: lightgray;
+	height: 100vh;
 }
 .container{
 	margin-top: 5%;
@@ -19,4 +20,7 @@ h1{
 input[type="text"]{
 	display: block;
 	width: 100%;
+}
+#quizdiv{
+	display: none;
 }
